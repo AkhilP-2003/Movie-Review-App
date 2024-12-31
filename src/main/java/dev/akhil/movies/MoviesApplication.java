@@ -18,7 +18,7 @@ public class MoviesApplication {
 
 	@GetMapping // annotation lets the framework know that this method is a GET req endpoint
 	public String apiRoot() {
-		return "Welcome to the Movies API";
+		return "Welcome to the Movie";
 	}
 
 }
