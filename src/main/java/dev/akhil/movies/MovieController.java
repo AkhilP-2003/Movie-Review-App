@@ -16,7 +16,7 @@ import java.util.Optional;
 @RequestMapping("/api/v1/movies") // sets the url endpoint
 public class MovieController {
 
-    @Autowired
+    @Autowired // enables dependency injection for you (rmbr DI allows an obj to receive other objs instead of creating them manually
     private MovieService movieService;
 
     @GetMapping // get request
@@ -28,11 +28,11 @@ public class MovieController {
 
     }
 
-    @GetMapping("/{id}") // takes in id as a param from the url
-    public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable ObjectId id){
+    @GetMapping("/{imdbId}") // takes in id as a param from the url
+    public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbId){
 
         // returns the data for a specific movie (we include optional to see if the movie id is even found)
-        return new ResponseEntity<Optional<Movie>>(movieService.singleMovie(id), HttpStatus.OK);
+        return new ResponseEntity<Optional<Movie>>(movieService.singleMovie(imdbId), HttpStatus.OK);
 
     }
 

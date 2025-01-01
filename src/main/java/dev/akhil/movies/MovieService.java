@@ -21,9 +21,9 @@ public class MovieService {
         return movieRepository.findAll(); //findall method is from the mongorepository class
     }
 
-    public Optional<Movie> singleMovie(ObjectId id) {
+    public Optional<Movie> singleMovie(String imdbId) {
 
         // searches thru the db to find by id, which is passed in as a param
-        return movieRepository.findById(id);
+        return movieRepository.findMovieByImdbId(imdbId);
     }
 }
